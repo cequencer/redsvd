@@ -1,0 +1,7 @@
+def build(bld):
+  bld(features     = 'cxx cprogram',
+      source       = 'lsaMain.cpp lsa.cpp',
+      target       = 'lsa',
+      install_path = None,
+      includes     = '.',
+      uselib_local = 'redsvd')

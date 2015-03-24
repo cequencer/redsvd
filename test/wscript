@@ -1,0 +1,18 @@
+def build(bld):
+  bld(features     ='cxx cprogram',
+      source       = 'performanceTest.cpp',
+      target       = 'performance_test',
+      install_path  = None,
+      includes     = '.',
+      uselib_local = 'redsvd')
+  bld(features     ='cxx cprogram',
+      source       = 'accuracyTest.cpp',
+      target       = 'accuracy_test',
+      install_path  = None,
+      includes     = '.',
+      uselib_local = 'redsvd')
+
+  bld(features     = 'cxx cprogram gtest',
+      source       = 'redsvdTest.cpp ../src/redsvdFile.cpp',
+      target       = 'redsvd_test',
+      uselib_local = 'redsvd')
